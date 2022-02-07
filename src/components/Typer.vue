@@ -1,5 +1,4 @@
 <template>
-<!-- {{start_time}} -->
 <div class="container flex flex-row mx-auto pt-20 items-end flex-wrap">
     <Word v-for="w in word_list.length" :key="w" :word="word_list[w-1]" :last_word="w == word_list.length"
      :active="active_word == w-1" :reset="reset" @onEndOfWord="nextWord" @toPreviousWord="previousWord"
