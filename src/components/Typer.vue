@@ -1,8 +1,8 @@
 <template>
 {{active_word}}
-<div class="container flex flex-row mx-auto pt-20 items-end">
+<div class="container flex flex-row mx-auto pt-20 items-end flex-wrap">
     <Word v-for="w in word_list.length" :key="w" :word="word_list[w-1]" :last_word="w == word_list.length"
-     :active="active_word == w-1" @onEndOfWord="nextWord" @toPreviousWord="previousWord"
+     :active="active_word == w-1" :reset="reset" @onEndOfWord="nextWord" @toPreviousWord="previousWord"
      />
 </div>
 
@@ -12,7 +12,7 @@
 import Word from '../components/Word.vue';
 // import Word from '../components/Word.vue';
 export default {
-    props: ["word_list"],
+    props: ["word_list","reset"],
     components: {Word},
     methods: {
         nextWord(){
@@ -42,7 +42,10 @@ export default {
             if(newv.length != 0){
                 console.log("not null")
             }
-        }
+        },
+        reset: function(newv){
+            this.active_word = 0
+        },
     }
 }
 </script>

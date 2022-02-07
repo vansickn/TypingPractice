@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    props: ['letter','active','active_word'],
+    props: ['letter','active','active_word','reset'],
 
     methods: {
 
@@ -67,6 +67,12 @@ export default {
         active: function(newval, oldval){
             if(newval == true){
                 console.log('letter')
+                this.correct_word = false;
+                this.incorrect_word = false;
+            }
+        },
+        reset: function(newv){
+            if(newv){
                 this.correct_word = false;
                 this.incorrect_word = false;
             }

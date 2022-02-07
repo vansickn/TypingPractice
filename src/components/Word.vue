@@ -1,5 +1,5 @@
 <template>
-   <Letter v-for="n in word.length" :key="n" :letter="word.charAt(n-1)" :active="checkActive(n-1)" :active_word="active"
+   <Letter v-for="n in word.length" :key="n" :letter="word.charAt(n-1)" :active="checkActive(n-1)" :active_word="active" :reset="reset"
     @onCorrectPress="onCorrectLetterPress" @onIncorrectPress="onIncorrectLetterPress" @onBackspace="onBackspaceEvent"
     />
    <!-- <span class="text-3xl text-gray-400" :class="{'text-gray-400 text-base':word == '_'}">{{word}}</span> -->
@@ -10,7 +10,7 @@
 <script>
 import Letter from '../components/Letter.vue';
 export default {
-    props: ['word','last_word','active'],
+    props: ['word','last_word','active','reset'],
     components: {Letter},
 
     methods: {
@@ -77,6 +77,11 @@ export default {
                     this.active_letter = this.word.length-1;
                     console.log('hello')
                 }
+            }
+        },
+        reset: function(newv){
+            if(newv){
+                this.active_letter = 0;
             }
         }
     }
