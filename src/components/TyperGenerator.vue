@@ -18,13 +18,28 @@ export default {
             }
             return updated_arr;
         },
+        massageRandomWordList(arr){
+            var updated_arr = []
+            for (let i = 0; i < arr.length; i++) {
+                updated_arr.push(arr[i].word);
+                if(i < arr.length-1){
+                    updated_arr.push("_");Kuf
+                }
+            }
+            return updated_arr;
+        },
         async fetchRandomWords(){
-            let response = await fetch('https://random-word-api.herokuapp.com/word?number=10');
+            // let response = await fetch('https://random-word-api.herokuapp.com/word?number=10');
+            let response = await fetch('https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=1&maxLength=8&limit=10&api_key=f0n0z9b5ibxt0mz6qcuuqb5dtjxb5vmb9yfng54uj1utghiye');
+            // console.log(response.json())
             return response.json()
         },
         randomWordsReset(){
+            // https://developer.wordnik.com/docs#!/words/getRandomWords
             this.fetchRandomWords().then((words)=>{
-                this.word_list_updated = this.massageWordList(words);
+                // https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=2&maxLength=8&limit=10&api_key=f0n0z9b5ibxt0mz6qcuuqb5dtjxb5vmb9yfng54uj1utghiye
+
+                this.word_list_updated = this.massageRandomWordList(words);
                 this.is_fetching = false;
             })
         },
