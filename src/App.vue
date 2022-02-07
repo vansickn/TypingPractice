@@ -6,7 +6,7 @@ import TyperGenerator from './components/TyperGenerator.vue';
 </script>
 
 <template>
-  <div class="bg-gray-600 h-screen">
+  <div class="bg-gray-800 h-screen">
   <TyperGenerator :random_words="true"/>
 
   <!--  :custom_word_list="['whats','up','my','dudes','it\'s','wednesday']" -->
