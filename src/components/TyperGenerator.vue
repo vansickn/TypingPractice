@@ -1,5 +1,5 @@
 <template>
-    <Typer v-show="show_typer" :word_list="word_list_updated" @onEndSentence="endedSentence" :reset="reset"/>
+    <Typer v-show="!is_loading" :word_list="word_list_updated" @onEndSentence="endedSentence" :reset="reset"/>
 </template>
 
 <script>
@@ -31,16 +31,18 @@ export default {
         endedSentence(){
             this.reset = true;
             this.randomWordsReset();
-            // this.session += 1;
+            this.session += 1;
+            this.is_loading = true;
             this.$nextTick(()=>{
                 this.reset = false;
+                this.is_loading = false;
             })
         }
     },
     data(){
         return {
             word_list_updated: [],
-            is_fetching: true,
+            is_loading: true,
             session: 0,
             reset: false,
         }
