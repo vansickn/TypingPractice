@@ -1,14 +1,14 @@
 <template>
-<div class="container flex flex-row mx-auto pt-14 pb-20 justify-start gap-2 flex-wrap">
+<div class="container flex flex-row gap-10 ml-20 mt-5">
+    <h1 class="text-xl text-gray-300">WPM: {{this.wpm}}</h1>
+    <h1 class="text-xl text-gray-300">Time: {{this.time_elapsed}}</h1>
+    <h1 class="text-xl text-gray-300">Accuracy: {{this.correct_words}}/{{this.word_list.length}}</h1>
+</div>
+<div class="container flex flex-row mx-auto pt-14 pb-20 justify-center gap-2 flex-wrap">
     <Word v-for="w in word_list.length" :key="w" :word="word_list[w-1]" :last_word="w == word_list.length"
      :active="active_word == w-1" :reset="reset" @onEndOfWord="nextWord" @toPreviousWord="previousWord"
      @onCorrectWord="alterCorrectness(true)" @onIncorrectWord="alterCorrectness(false)"
      />
-</div>
-<div class="container flex flex-row mx-auto gap-10">
-    <h1 class="text-xl text-gray-300">WPM: {{this.wpm}}</h1>
-    <h1 class="text-xl text-gray-300">Time: {{this.time_elapsed}}</h1>
-    <h1 class="text-xl text-gray-300">Accuracy: {{this.correct_words}}/{{this.word_list.length}}</h1>
 </div>
 </template>
 
