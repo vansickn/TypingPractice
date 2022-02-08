@@ -68,7 +68,8 @@ export default {
             })
         },
         pickedWordsFromDictionary(words){
-            this.word_list_updated = this.massageWordList(words)
+            // this.word_list_updated = this.massageWordList(words)
+            this.word_list_updated = words;
         },
         adjustDifficulty(diff){
             const i = this.difficulty_array.indexOf(diff)
