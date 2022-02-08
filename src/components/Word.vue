@@ -48,6 +48,7 @@ export default {
         handleBackspace(){
             if(this.typed_letters.length > 0){
                 this.typed_letters.pop()
+                this.checkCorrectness();
             }else{
                 this.$emit("toPreviousWord");
             }
@@ -57,6 +58,17 @@ export default {
                 this.typed_letters.push(input);
                 console.log(this.typed_letters.length)
                 console.log(this.typed_letters)
+                this.checkCorrectness();
+            }
+        },
+        checkCorrectness(){
+            console.log(JSON.stringify(this.typed_letters))
+            if(JSON.stringify(this.typed_letters) == JSON.stringify(this.word.split(''))){
+                console.log("correct")
+                this.$emit('onCorrectWord')
+            }else{
+                console.log("incorrect")
+                this.$emit('onIncorrectWord')
             }
         },
         // checkEndWord(){
