@@ -16,7 +16,7 @@
 import Word from '../components/Word.vue';
 // import Word from '../components/Word.vue';
 export default {
-    props: ["word_list","reset"],
+    props: ["word_list","reset","number_of_words"],
     components: {Word},
     methods: {
         nextWord(){
@@ -34,7 +34,7 @@ export default {
         },
         calculateTimeAndWPM(){
             this.time_elapsed = (this.end_time - this.start_time)/1000
-            this.wpm = (10/this.time_elapsed)*60
+            this.wpm = (this.number_of_words/this.time_elapsed)*60
             this.start_time = null;
             this.end_time = null;
         }
