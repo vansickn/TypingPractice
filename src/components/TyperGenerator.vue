@@ -1,9 +1,9 @@
 <template>
     
-    <div class="container flex flex-row mx-auto">
-        <div class="container flex flex-col">
-            <h1 class="text-gray-200 mx-auto ml-20 pt-10">Choose words from: </h1>
-            <div class="container flex flex-row gap-5">
+    <div class="container flex flex-row justify-start gap-10 ml-20">
+        <div class="container flex flex-col items-center w-64">
+            <h1 class="text-gray-200 pt-10">Choose words from: </h1>
+            <div class="container flex flex-row gap-5 mt-1 justify-center">
                 <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-200 items-center justify-center rounded-lg select-none" :class="{'bg-green-400': difficulty_array.includes('easy')}" @click="adjustDifficulty('easy')">
                     Easy
                 </div>
@@ -15,9 +15,9 @@
                 </div>
             </div>
         </div>
-        <div class="container flex flex-col">
-            <h1 class="text-gray-200 ml-20 pt-10">Number of words: </h1>
-            <div class="container flex flex-row gap-5">
+        <div class="container flex flex-col items-center w-64">
+            <h1 class="text-gray-200 pt-10">Number of words: </h1>
+            <div class="container flex flex-row gap-5 mt-1 justify-center">
                 <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-200 items-center justify-center rounded-lg select-none" :class="{'bg-green-400': num_words == 10}" @click="changeNumWords(10)">
                     10
                 </div>
