@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!extra_letters" class="container grid grid-cols-1 w-auto justify-between">
+  <div v-if="!extra_letters" class="container grid grid-cols-1 w-auto justify-between justify-items-center">
     <span class="text-3xl text-gray-500" :class="{'text-gray-200': letter_array[index] == typed_letter_array[index], 'text-red-400': letter_array[index] != typed_letter_array[index] && typed_letter_array.length > index}">{{letter_array[index]}}</span>
     <span v-if="letter_array[index] != typed_letter_array[index] && typed_letter_array.length <= word_length" class="text-xs text-gray-500">{{typed_letter_array[index]}}</span>
   </div>
