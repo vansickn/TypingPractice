@@ -1,5 +1,6 @@
 <template>
-<div class="container flex flex-row mx-auto pt-20 items-end flex-wrap">
+{{this.active_word}}
+<div class="container flex flex-row mx-auto pt-20 justify-start gap-2 flex-wrap">
     <Word v-for="w in word_list.length" :key="w" :word="word_list[w-1]" :last_word="w == word_list.length"
      :active="active_word == w-1" :reset="reset" @onEndOfWord="nextWord" @toPreviousWord="previousWord"
      />
@@ -30,6 +31,8 @@ export default {
         previousWord(){
             if(this.active_word > 0){
                 this.active_word -= 1
+            }else{
+                this.active_word = 0;
             }
         },
         calculateTimeAndWPM(){
@@ -37,7 +40,7 @@ export default {
             this.wpm = (this.number_of_words/this.time_elapsed)*60
             this.start_time = null;
             this.end_time = null;
-        }
+        },
     },
     mounted() {
         console.log(this.word_list)
@@ -45,6 +48,10 @@ export default {
         document.addEventListener('keypress', e=>{
             if(this.start_time == null){
                 this.start_time = Date.now();
+            }
+            if(e.keyCode == 32){
+                // space bar
+                this.nextWord();
             }
         });
     },
