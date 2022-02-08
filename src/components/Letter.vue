@@ -1,82 +1,33 @@
 <template>
   
-  <span class="text-2xl text-gray-500" :class="{'animate-pulse text-green-400': active && active_word, 'text-gray-100': correct_word, 'text-red-400': incorrect_word, 'text-xs': letter == '_', 'text-xs text-red-400': letter == '_' && incorrect_word,'text-xs text-gray-600': letter == '_' && correct_word}">{{letter}}</span>
+
+  <div class="container grid grid-cols-1 w-auto justify-between">
+    <span class="text-2xl text-gray-500" :class="{'text-gray-200': letter_array[index] == typed_letter_array[index], 'text-red-400': letter_array[index] != typed_letter_array[index] && typed_letter_array.length > index}">{{letter_array[index]}}</span>
+    <span v-if="letter_array[index] != typed_letter_array[index]" class="text-base text-gray-500">{{typed_letter_array[index]}}</span>
+  </div>
 
 </template>
 
 <script>
 export default {
-    props: ['letter','active','active_word','reset'],
+    props: ['letter_array','typed_letter_array','index'],
 
     methods: {
-
-        register_key_press() {
-            document.addEventListener('keydown', e=>{
-                if(e.keyCode == 8 && this.active && this.active_word){
-                    this.$emit('onBackspace',this.letter)
-                }
-            })
-            document.addEventListener('keypress',e => {
-                // console.log(e.keyCode)
-                // var input = String.fromCharCode(e.which);
-                var input = e.key
-                // console.log(e)
-                if(e.keyCode == 32){
-                    this.checkIfSpaceBar();
-                }else{
-                    this.checkIfActiveLetter(input);
-                }
-            })
-        },
-        checkIfActiveLetter(input){
-            if(this.active && this.active_word){
-                if(input == this.letter){
-                    this.correct_word = true;
-                    this.$emit('onCorrectPress',this.letter)
-                }else if(input != this.letter){
-                    this.incorrect_word = true;
-                    this.$emit('onIncorrectPress',this.letter)
-                }
-            }
-        },
-        checkIfSpaceBar(input){
-            if(this.active && this.active_word){
-                if(this.letter == '_'){
-                    this.correct_word = true;
-                    this.$emit('onCorrectPress',this.letter)
-                }else{
-                    this.incorrect_word = true;
-                    this.$emit('onIncorrectPress',this.letter)
-                }
-            }
-        },
 
     },
 
     mounted(){
-        this.register_key_press();
+        // console.log(this.letter_array[index])
     },
 
     data(){
         return {
-            correct_word: false,
-            incorrect_word: false,
+            // correct_word: false,
+            // incorrect_word: false,
         }
     },
     watch:{
-        active: function(newval, oldval){
-            if(newval == true){
-                console.log('letter')
-                this.correct_word = false;
-                this.incorrect_word = false;
-            }
-        },
-        reset: function(newv){
-            if(newv){
-                this.correct_word = false;
-                this.incorrect_word = false;
-            }
-        }
+        
     }
 
 }
