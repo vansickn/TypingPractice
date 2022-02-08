@@ -4,7 +4,7 @@
     <span v-if="letter_array[index] != typed_letter_array[index] && typed_letter_array.length <= word_length" class="text-xs text-gray-500">{{typed_letter_array[index]}}</span>
   </div>
   <div v-if="extra_letters" class="w-auto">
-      <span class="text-2xl text-red-400">{{typed_letter_array[index]}}</span>
+      <span class="text-3xl text-red-400">{{typed_letter_array[index]}}</span>
   </div>
 
 </template>
