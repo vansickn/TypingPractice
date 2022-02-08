@@ -7,7 +7,7 @@ export default {
     props:['difficulty','number_of_words','reset'],
     data(){
         return{
-            easy_words: [
+            words: [
             "a",
             "able",
             "about",
@@ -994,10 +994,10 @@ export default {
     methods: {
         pickFromEasy(){
             var to_ret = [];
-            var max = this.easy_words.length;
+            var max = this.words.length;
             for(var i = 0; i <= this.number_of_words-1 ;i+=1){
                 var r = Math.floor(Math.random() * max);
-                to_ret.push(this.easy_words[r]);
+                to_ret.push(this.words[r]);
             }
             this.$emit("onChosenWords",to_ret)
         }
