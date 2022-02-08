@@ -988,30 +988,61 @@ export default {
             "yet",
             "you",
             "young"
-            ]
+            ],
+            easy_words: [
+                "a","able","act","add","age","ago","air","all","also","and","any","area","arm","art","as","ask","at","away","baby","back","bad","bag","ball","bank","bar","base","be","bear","beat","bed","best","bet","big","bill","bit","blow","blue","boat","body","book","both","box","boy","bus","busy","but","buy","by","cake","call","can","car","card","care","case","cat","cent","chap","city","club","cold","come","cook","copy","cost","cup","cut","dad","date","day","dead","deal","dear","deep","die","do","dog","door","down","draw","drop","dry","due","each","east","easy","eat","egg","else","end","even","ever","eye","face","fact","fair","fall","far","farm","fast","feed","feel","few","file","fill","film","find","fine","fire","fish","fit","five","flat","fly","food","foot","for","form","four","free","from","full","fun","fund","game","gas","get","girl","give","go","god","good","grow","guy","hair","half","hall","hand","hang","hard","hate","have","he","head","hear","heat","hell","help","here","high","hit","hold","home","hope","hot","hour","how","idea","if","in","into","it","item","job","join","jump","just","keep","key","kid","kill","kind","king","know","lad","lady","land","last","late","law","lay","lead","left","leg","less","let","lie","life","like","line","link","list","live","load","lock","long","look","lord","lose","lot","love","low","luck","main","make","man","many","mark","may","mean","meet","mile","milk","mind","miss","more","most","move","mrs","much","must","name","near","need","new","news","next","nice","nine","no","non","none","not","note","now","odd","of","off","okay","old","on","once","one","only","open","or","out","over","own","pack","page","pair","park","part","pass","past","pay","per","pick","plan","play","plus","poor","post","pull","push","put","quid","rail","rate","read","real","red","rest","rid","ring","rise","road","role","roll","room","rule","run","safe","sale","same","save","say","seat","see","seem","self","sell","send","set","sex","she","shoe","shop","show","shut","sick","side","sign","sing","sir","sit","site","six","size","slow","so","some","son","soon","sort","stay","step","stop","such","suit","sun","sure","take","talk","tape","tax","tea","team","tell","ten","tend","term","test","than","the","then","they","this","thou","tie","time","to","too","top","town","tree","true","try","turn","two","type","unit","up","upon","use","very","view","vote","wage","wait","walk","wall","want","war","warm","wash","way","we","wear","wee","week","well","west","what","when","who","why","wide","wife","will","win","wind","wish","with","wood","word","work","year","yes","yet","you"
+            ],
+            medium_words: [
+                "about","accept","account","achieve","across","active","actual","address","admit","affect","afford","after","again","against","agent","agree","allow","almost","along","already","alright","always","america","amount","another","answer","apart","appear","apply","appoint","argue","around","arrange","assume","attend","aware","awful","balance","basis","beauty","because","become","before","begin","behind","believe","benefit","between","birth","black","bloke","blood","board","bother","bottle","bottom","break","brief","bring","britain","brother","budget","build","carry","catch","cause","centre","certain","chair","chance","change","charge","cheap","check","child","choice","choose","christ","church","claim","class","clean","clear","client","clock","close","closes","clothe","coffee","collect","college","colour","comment","commit","common","company","compare","compute","concern","confer","consult","contact","control","corner","correct","could","council","count","country","county","couple","course","court","cover","create","cross","current","danger","debate","decide","degree","depend","design","detail","develop","dinner","direct","discuss","divide","doctor","double","doubt","dress","drink","drive","during","early","economy","educate","effect","eight","either","elect","eleven","employ","engine","english","enjoy","enough","enter","equal","europe","evening","every","exact","example","except","excuse","exist","expect","expense","explain","express","extra","family","father","favour","field","fight","figure","final","finance","finish","first","floor","follow","force","forget","fortune","forward","france","friday","friend","front","further","future","garden","general","germany","glass","goodbye","govern","grand","grant","great","green","ground","group","guess","happen","happy","health","heart","heavy","history","holiday","honest","horse","house","however","hullo","hundred","husband","imagine","improve","include","income","indeed","inform","inside","instead","insure","invest","involve","issue","jesus","judge","kitchen","knock","labour","large","laugh","learn","leave","letter","level","light","likely","limit","listen","little","local","london","lunch","machine","major","manage","market","marry","match","matter","maybe","meaning","measure","member","mention","middle","might","million","minus","minute","mister","moment","monday","money","month","morning","mother","motion","music","nation","nature","never","night","normal","north","notice","number","obvious","offer","office","often","operate","oppose","order","other","ought","paint","paper","pardon","parent","party","pence","pension","people","percent","perfect","perhaps","period","person","picture","piece","place","please","point","police","policy","politic","pound","power","prepare","present","press","presume","pretty","price","print","private","problem","proceed","process","produce","product","project","proper","propose","protect","provide","public","purpose","quality","quarter","quick","quiet","quite","radio","raise","range","rather","ready","realise","really","reason","receive","recent","reckon","record","reduce","refer","regard","region","report","require","respect","result","return","right","round","scheme","school","science","score","second","section","secure","sense","serious","serve","service","settle","seven","shall","share","sheet","shoot","short","should","similar","simple","since","single","sister","situate","sleep","slight","small","smoke","social","society","sorry","sound","south","space","speak","special","speed","spell","spend","square","staff","stage","stairs","stand","start","state","station","stick","still","story","street","strike","strong","student","study","stuff","stupid","subject","succeed","sudden","suggest","summer","sunday","supply","support","suppose","switch","system","table","teach","thank","there","thing","think","thirty","though","three","through","throw","today","tonight","total","touch","toward","trade","traffic","train","travel","treat","trouble","trust","tuesday","twelve","twenty","under","union","unite","unless","until","usual","value","various","video","village","visit","waste","watch","water","weigh","welcome","where","whether","which","while","white","whole","window","within","without","woman","wonder","world","worry","worse","worth","would","write","wrong","young"
+            ],
+            hard_words: [
+                "absolute","advertise","afternoon","although","apparent","approach","appropriate","associate","authority","available","brilliant","business","chairman","character","christmas","colleague","committee","community","complete","condition","consider","continue","contract","converse","decision","definite","department","describe","difference","difficult","district","document","electric","encourage","environment","especial","evidence","exercise","experience","function","hospital","identify","important","increase","individual","industry","interest","introduce","language","minister","necessary","occasion","opportunity","organize","original","otherwise","paragraph","particular","photograph","position","positive","possible","practise","pressure","previous","probable","programme","question","recognize","recommend","relation","remember","represent","research","resource","responsible","saturday","scotland","secretary","separate","specific","standard","straight","strategy","structure","surprise","telephone","television","terrible","therefore","thirteen","thousand","thursday","together","tomorrow","transport","understand","university","wednesday","yesterday"
+            ],
+            concatted_array: [],
         }
     },
     methods: {
-        pickFromEasy(){
+        pickFrom(arr){
             var to_ret = [];
-            var max = this.words.length;
+            var max = arr.length;
             for(var i = 0; i <= this.number_of_words-1 ;i+=1){
                 var r = Math.floor(Math.random() * max);
-                to_ret.push(this.words[r]);
+                to_ret.push(arr[r]);
             }
+            console.log(to_ret)
             this.$emit("onChosenWords",to_ret)
+        },
+        async generateWordsBasedOnDifficulty(){
+            var arr = []
+            for (let i = 0; i < this.difficulty.length; i++) {
+                console.log(this.difficulty[i])
+                if(this.difficulty[i] == 'easy'){
+                    arr = arr.concat(this.easy_words);
+                }else if(this.difficulty[i] == 'medium'){
+                    arr = arr.concat(this.medium_words);
+                }else if(this.difficulty[i] == 'hard'){
+                    arr = arr.concat(this.hard_words);
+                }
+            }
+            console.log(arr)
+            return arr
         }
     },
     watch: {
         reset: function(newv){
             if(newv = true){
-                this.pickFromEasy();
+                this.generateWordsBasedOnDifficulty().then((arr)=>{
+                    this.pickFrom(arr);
+                })
             }
         }
     },
-    mounted(){
-        this.pickFromEasy();
-        console.log("mounted")
+    async mounted(){
+        await this.generateWordsBasedOnDifficulty().then((arr) => {
+            this.pickFrom(arr);
+        })
+        
+        // this.pickFrom(arr);
     }
 
 
