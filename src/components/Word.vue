@@ -99,7 +99,6 @@ export default {
         return {
             active_letter: 0,
             typed_letters: [],
-            number: 20,
         }
     },
     watch: {
