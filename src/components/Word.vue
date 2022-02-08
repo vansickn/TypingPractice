@@ -6,7 +6,9 @@
     <!-- <span class="text-2xl text-gray-500">{{word}}</span>
     {{typed_letters}} -->
     <div class="container flex flex-row w-auto">
-        <Letter v-for="n in word.length" :key="n" :letter_array="word.split('')" :typed_letter_array="typed_letters" :index="n-1"/>
+        <Letter v-for="n in word.length" :key="n" :letter_array="word.split('')" :typed_letter_array="typed_letters" :index="n-1" :word_length="word.length" :typed_letters_length="typed_letters.length" :extra_letters="false"/>
+        <!-- if extra -->
+        <Letter v-for="n in typed_letters.length" :key="n" :typed_letter_array="typed_letters" :index="word.length + n-1" :extra_letters="true"/>
     </div>
    <!-- <span class="text-3xl text-gray-400" :class="{'text-gray-400 text-base':word == '_'}">{{word}}</span> -->
 
@@ -50,35 +52,19 @@ export default {
                 this.$emit("toPreviousWord");
             }
         },
-        onCorrectLetterPress(letter){
-            // need to set timeout for 1ms in order to switch active
-            setTimeout(()=>{
-                this.active_letter += 1;
-                this.checkEndWord();
-            }, 1)
-        },
-        onIncorrectLetterPress(letter){
-            setTimeout(()=>{
-                this.active_letter += 1;
-                this.checkEndWord();
-            }, 1)
-        },
-        onBackspaceEvent(letter){
-            setTimeout(()=> {
-                this.previousLetter()
-            })
-        },
         checkActive(input){
             if(this.active){
                 this.typed_letters.push(input);
+                console.log(this.typed_letters.length)
+                console.log(this.typed_letters)
             }
         },
-        checkEndWord(){
-            if(this.active_letter >= this.word.length){
-                this.$emit('onEndOfWord');
-                // this.active_letter -= 1;
-            }
-        },
+        // checkEndWord(){
+            //     if(this.active_letter >= this.word.length){
+        //         this.$emit('onEndOfWord');
+        //         // this.active_letter -= 1;
+        //     }
+        // },
         previousLetter(){
             console.log('hello')
             if(this.active_letter == 0){
@@ -101,6 +87,7 @@ export default {
         return {
             active_letter: 0,
             typed_letters: [],
+            number: 20,
         }
     },
     watch: {
@@ -115,6 +102,7 @@ export default {
                 console.log("reset word")
                 this.active_letter = 0;
                 this.typed_letters = [];
+                
                 document.removeEventListener('keydown',this.handleKeyDown);
                 document.removeEventListener('keypress',this.handleKeyPress);
                 this.register_key_press();
