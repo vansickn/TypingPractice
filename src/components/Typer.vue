@@ -1,19 +1,19 @@
 <template>
-{{this.active_word}}
-<div class="container flex flex-row mx-auto pt-20 justify-start gap-2 flex-wrap">
+<div class="container flex flex-row mx-auto pt-14 pb-20 justify-start gap-2 flex-wrap">
     <Word v-for="w in word_list.length" :key="w" :word="word_list[w-1]" :last_word="w == word_list.length"
      :active="active_word == w-1" :reset="reset" @onEndOfWord="nextWord" @toPreviousWord="previousWord"
+     @onCorrectWord="alterCorrectness(true)" @onIncorrectWord="alterCorrectness(false)"
      />
 </div>
-<div class="container flex flex-row mx-auto mt-5 gap-10">
-    <h1 class="text-2xl text-gray-100">WPM: {{this.wpm}}</h1>
-    <h1 class="text-2xl text-gray-100">Time: {{this.time_elapsed}}</h1>
+<div class="container flex flex-row mx-auto gap-10">
+    <h1 class="text-xl text-gray-300">WPM: {{this.wpm}}</h1>
+    <h1 class="text-xl text-gray-300">Time: {{this.time_elapsed}}</h1>
+    <h1 class="text-xl text-gray-300">Accuracy: {{this.correct_words}}/{{this.word_list.length}}</h1>
 </div>
-
-
 </template>
 
 <script>
+// import { loadConfigFromFile } from 'vite';
 import Word from '../components/Word.vue';
 // import Word from '../components/Word.vue';
 export default {
@@ -37,9 +37,24 @@ export default {
         },
         calculateTimeAndWPM(){
             this.time_elapsed = (this.end_time - this.start_time)/1000
-            this.wpm = (this.number_of_words/this.time_elapsed)*60
             this.start_time = null;
             this.end_time = null;
+            this.correct_words = 0;
+            for (let i = 0; i < this.correctness_array.length; i++) {
+                if(this.correctness_array[i] == true){
+                    this.correct_words += 1
+                }
+            }
+            this.wpm = Math.round((this.correct_words/this.time_elapsed)*60)
+
+
+        },
+        alterCorrectness(bool){
+            if(bool){
+                this.correctness_array[this.active_word] = true;
+            }else if(!bool){
+                this.correctness_array[this.active_word] = false;
+            }
         },
     },
     mounted() {
@@ -63,6 +78,8 @@ export default {
             time: null,
             time_elapsed: null,
             wpm: null,
+            correctness_array: [],
+            correct_words: 0,
         };
     },
     components: { Word },
@@ -77,6 +94,7 @@ export default {
             this.active_word = 0
             this.start_time = null;
             this.end_time = null;
+            this.correctness_array = [];
         },
     }
 }
