@@ -70,7 +70,8 @@ export default {
             }
             return updated_arr;
         },
-        resetTyper(wpm_array, correct_array){
+        resetTyper(wpm_array, correct_array,wpm_total){
+            this.wpm_total = wpm_total;
             this.wpm_array = wpm_array;
             this.correct_array = correct_array;
             this.reset = true;
@@ -111,6 +112,7 @@ export default {
 
             wpm_array: null,
             correct_array: null,
+            wpm_total: null,
         }
     },
     mounted(){

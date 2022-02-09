@@ -28,7 +28,7 @@ export default {
             this.start_word_time = Date.now();
             if(this.active_word > this.word_list.length-1){
                 this.end_time = Date.now()
-                this.$emit('onEndSentence',this.word_wpm_array,this.correctness_array);
+                this.$emit('onEndSentence',this.word_wpm_array,this.correctness_array, this.wpm);
                 this.calculateTimeAndWPM();
             }
         },
