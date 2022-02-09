@@ -2,7 +2,7 @@
         <div class="container flex flex-col min-w-full">
             <div class="container flex flex-row min-w-full justify-center">
                 <!-- <LineChart class="w-10/12" v-bind="barChartProps" /> -->
-                <LineChart v-if="showGraph" class="w-8/12" :chart-data="chartData" :options="options"/>
+                <LineChart v-if="showGraph" class="sm:w-8/12 h-64" :chart-data="chartData" :options="options"/>
             </div>
         </div>
 
