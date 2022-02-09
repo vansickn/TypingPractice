@@ -6,7 +6,7 @@
     <!-- <span class="text-2xl text-gray-500">{{word}}</span>
     {{typed_letters}} -->
     <div class="container flex flex-row w-auto">
-        <Letter v-for="n in word.length" :key="n" :letter_array="word.split('')" :typed_letter_array="typed_letters" :index="n-1" :word_length="word.length" :typed_letters_length="typed_letters.length" :extra_letters="false"/>
+        <Letter v-for="n in word.length" :key="n" :letter_array="word.split('')" :typed_letter_array="typed_letters" :index="n-1" :word_length="word.length" :typed_letters_length="typed_letters.length" :extra_letters="false" :active_word="active"/>
         <!-- if extra -->
         <Letter v-for="n in typed_letters.length" :key="n" :typed_letter_array="typed_letters" :index="word.length + n-1" :extra_letters="true"/>
     </div>
