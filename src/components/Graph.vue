@@ -46,7 +46,7 @@ export default{
             options: {
                 scales: {
                     y: {
-                    beginAtZero: false,
+                    beginAtZero: true,
                     },
                 },
                 plugins: {
