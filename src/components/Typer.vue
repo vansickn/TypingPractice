@@ -1,8 +1,8 @@
 <template>
-<div class="container flex flex-row gap-10 ml-20 mt-5">
-    <h1 class="text-xl text-gray-300">WPM: {{this.wpm}}</h1>
-    <h1 class="text-xl text-gray-300">Time: {{this.time_elapsed}}</h1>
-    <h1 class="text-xl text-gray-300">Accuracy: {{this.correct_words}}/{{this.word_list.length}}</h1>
+<div class="container flex flex-row gap-3 sm:gap-10 sm:ml-20 mt-5 text-center justify-center sm:justify-start">
+    <h1 class="text-xl text-gray-400">WPM: {{this.wpm}}</h1>
+    <h1 class="text-xl text-gray-400">Time: {{this.time_elapsed}}</h1>
+    <h1 class="text-xl text-gray-400">Accuracy: {{this.correct_words}}/{{this.word_list.length}}</h1>
 </div>
 <div class="container flex flex-row mx-auto pt-14 pb-20 justify-center gap-2 flex-wrap">
     <Word v-for="w in word_list.length" :key="w" :word="word_list[w-1]" :last_word="w == word_list.length"
