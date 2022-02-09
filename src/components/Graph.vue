@@ -56,6 +56,9 @@ export default{
                 },
                 padding: 10,
                 legendTop: false,
+                font: {
+                    family: 'Avenir',
+                }
             },
             showGraph: false,
         }
@@ -67,7 +70,10 @@ export default{
                 datasets: [
                     {
                         data: wpm,
-                        backgroundColor: this.generateBackgroundColors(this.correctness_array)
+                        backgroundColor: this.generateBackgroundColors(this.correctness_array),
+                        borderColor: '#6b7280',
+                        borderWidth: 1,
+                        tension: 0.3,
                     }
                 ],
             }
