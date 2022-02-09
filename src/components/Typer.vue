@@ -52,6 +52,10 @@ export default {
         alterCorrectness(bool){
             if(bool){
                 this.correctness_array[this.active_word] = true;
+                if(this.active_word == this.word_list.length-1){
+                    // ends and resets
+                    this.nextWord()
+                }
             }else if(!bool){
                 this.correctness_array[this.active_word] = false;
             }
