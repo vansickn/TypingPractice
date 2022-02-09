@@ -1,30 +1,30 @@
 <template>
     
-    <div class="container flex flex-row justify-start gap-10 ml-20">
-        <div class="container flex flex-col items-center w-64">
-            <h1 class="text-gray-200 pt-10">Choose words from: </h1>
-            <div class="container flex flex-row gap-5 mt-1 justify-center">
-                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-200 items-center justify-center rounded-lg select-none" :class="{'bg-green-400': difficulty_array.includes('easy')}" @click="adjustDifficulty('easy')">
+    <div class="container flex flex-row justify-start sm:gap-10 sm:ml-20 flex-wrap">
+        <div class="container flex flex-col items-center sm:w-64">
+            <h1 class="text-gray-400 pt-2 sm:pt-10">Choose words from: </h1>
+            <div class="container flex flex-row gap-2 sm:gap-5 mt-1 justify-center">
+                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-500 items-center justify-center rounded-lg select-none" :class="{'bg-green-500': difficulty_array.includes('easy')}" @click="adjustDifficulty('easy')">
                     Easy
                 </div>
-                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-200 items-center justify-center rounded-lg select-none" :class="{'bg-yellow-400': difficulty_array.includes('medium')}" @click="adjustDifficulty('medium')">
+                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-500 items-center justify-center rounded-lg select-none" :class="{'bg-yellow-500': difficulty_array.includes('medium')}" @click="adjustDifficulty('medium')">
                     Medium
                 </div>
-                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-200 items-center justify-center rounded-lg select-none" :class="{'bg-red-400': difficulty_array.includes('hard')}" @click="adjustDifficulty('hard')">
+                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-500 items-center justify-center rounded-lg select-none" :class="{'bg-red-500': difficulty_array.includes('hard')}" @click="adjustDifficulty('hard')">
                     Hard
                 </div>
             </div>
         </div>
-        <div class="container flex flex-col items-center w-64">
-            <h1 class="text-gray-200 pt-10">Number of words: </h1>
-            <div class="container flex flex-row gap-5 mt-1 justify-center">
-                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-200 items-center justify-center rounded-lg select-none" :class="{'bg-green-400': num_words == 10}" @click="changeNumWords(10)">
+        <div class="container flex flex-col items-center sm:w-64">
+            <h1 class="text-gray-400 pt-2 sm:pt-10">Number of words: </h1>
+            <div class="container flex flex-row gap-2 sm:gap-5 mt-1 justify-center">
+                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-500 items-center justify-center rounded-lg select-none" :class="{'bg-green-500': num_words == 10}" @click="changeNumWords(10)">
                     10
                 </div>
-                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-200 items-center justify-center rounded-lg select-none" :class="{'bg-yellow-400': num_words == 25}" @click="changeNumWords(25)">
+                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-500 items-center justify-center rounded-lg select-none" :class="{'bg-yellow-500': num_words == 25}" @click="changeNumWords(25)">
                     25
                 </div>
-                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-200 items-center justify-center rounded-lg select-none" :class="{'bg-red-400': num_words == 40}" @click="changeNumWords(40)">
+                <div class="conatainer flex flex-row cursor-pointer w-20 h-10 bg-gray-500 items-center justify-center rounded-lg select-none" :class="{'bg-red-500': num_words == 40}" @click="changeNumWords(40)">
                     40
                 </div>
             </div>
