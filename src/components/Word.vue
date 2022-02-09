@@ -30,20 +30,16 @@ export default {
         },
         handleKeyDown(e){
             if(e.keyCode == 8 && this.active){
-                // this.$emit('onBackspace',this.letter)
-                console.log('hello')
                 this.handleBackspace(e);
             }
         },
         handleKeyPress(e){
+            e.preventDefault();
             var input = e.key
             console.log(input)
             if(e.keyCode == 32){ //space bar
-               console.log("spacebar!") 
             }else{
                 this.checkActive(input)
-                // this.typed_letters.push(String.fromCharCode(e.keyCode));
-                // console.log(String.fromCharCode(e.keyCode));
             }
         },
         handleBackspace(e){
@@ -69,19 +65,11 @@ export default {
         checkCorrectness(){
             console.log(JSON.stringify(this.typed_letters))
             if(JSON.stringify(this.typed_letters) == JSON.stringify(this.word.split(''))){
-                console.log("correct")
                 this.$emit('onCorrectWord')
             }else{
-                console.log("incorrect")
                 this.$emit('onIncorrectWord')
             }
         },
-        // checkEndWord(){
-            //     if(this.active_letter >= this.word.length){
-        //         this.$emit('onEndOfWord');
-        //         // this.active_letter -= 1;
-        //     }
-        // },
         previousLetter(){
             console.log('hello')
             if(this.active_letter == 0){
@@ -94,7 +82,6 @@ export default {
     },
 
     mounted(){
-        // this.register_key_press();
         if(this.active){
             console.log(this.word)
         }
