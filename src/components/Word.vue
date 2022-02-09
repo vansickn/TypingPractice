@@ -31,7 +31,8 @@ export default {
         handleKeyDown(e){
             if(e.keyCode == 8 && this.active){
                 // this.$emit('onBackspace',this.letter)
-                this.handleBackspace();
+                console.log('hello')
+                this.handleBackspace(e);
             }
         },
         handleKeyPress(e){
@@ -45,13 +46,17 @@ export default {
                 // console.log(String.fromCharCode(e.keyCode));
             }
         },
-        handleBackspace(){
-            if(this.typed_letters.length > 0){
-                this.typed_letters.pop()
-                this.checkCorrectness();
+        handleBackspace(e){
+            if(this.typed_letters.length == 0){
+                this.$emit("toPreviousWord")
             }else{
-                this.$emit("toPreviousWord");
+                if(e.altKey == true){
+                    this.typed_letters = [];
+                }else{
+                    this.typed_letters.pop()
+                }
             }
+
         },
         checkActive(input){
             if(this.active){
