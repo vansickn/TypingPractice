@@ -10,6 +10,7 @@
      @onCorrectWord="alterCorrectness(true)" @onIncorrectWord="alterCorrectness(false)"
      />
 </div>
+
 </template>
 
 <script>
@@ -21,10 +22,13 @@ export default {
     components: {Word},
     methods: {
         nextWord(){
+            this.end_word_time = Date.now();
+            this.saveWordTime();
             this.active_word += 1
+            this.start_word_time = Date.now();
             if(this.active_word > this.word_list.length-1){
                 this.end_time = Date.now()
-                this.$emit('onEndSentence')
+                this.$emit('onEndSentence',this.word_wpm_array,this.correctness_array);
                 this.calculateTimeAndWPM();
             }
         },
@@ -47,7 +51,6 @@ export default {
             }
             this.wpm = Math.round((this.correct_words/this.time_elapsed)*60)
 
-
         },
         alterCorrectness(bool){
             if(bool){
@@ -60,6 +63,12 @@ export default {
                 this.correctness_array[this.active_word] = false;
             }
         },
+        saveWordTime(){
+            var word_time_elapsed = (this.end_word_time - this.start_word_time)/1000;
+            this.word_wpm_array[this.active_word] = Math.round((1/word_time_elapsed)*60);
+            this.start_word_time = null;
+            this.end_word_time = null;
+        }
     },
     mounted() {
         console.log(this.word_list)
@@ -67,6 +76,9 @@ export default {
         document.addEventListener('keypress', e=>{
             if(this.start_time == null){
                 this.start_time = Date.now();
+            }
+            if(this.start_word_time == null){
+                this.start_word_time = Date.now();
             }
             if(e.keyCode == 32){
                 // space bar
@@ -84,6 +96,11 @@ export default {
             wpm: null,
             correctness_array: [],
             correct_words: 0,
+
+            word_wpm_array: [],
+            start_word_time: null,
+            end_word_time: null,
+
         };
     },
     components: { Word },
@@ -99,6 +116,8 @@ export default {
             this.start_time = null;
             this.end_time = null;
             this.correctness_array = [];
+            this.start_word_time = null;
+            this.end_word_time = null;
         },
     }
 }
