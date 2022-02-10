@@ -51,8 +51,22 @@ export default{
             options: {
                 scales: {
                     y: {
-                    beginAtZero: true,
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#6b7280',
+                            font: {
+                                size: 12,
+                            }
+                        }
                     },
+                    x: {
+                        ticks: {
+                            color: '#6b7280',
+                            font: {
+                                size: 12,
+                            }
+                        }
+                    }
                 },
                 plugins: {
                     legend: {
@@ -66,6 +80,13 @@ export default{
                 },
                 maintainAspectRatio: false,
                 responsive: true,
+                elements: {
+                    point: {
+                        radius: 4,
+                        borderWidth: 0,
+                        hoverRadius: 6,
+                    }
+                },
             },
             showGraph: false,
             wpm_copy: null,
@@ -80,7 +101,7 @@ export default{
                         data: wpm,
                         backgroundColor: this.generateBackgroundColors(this.correctness_array),
                         borderColor: '#6b7280',
-                        borderWidth: 1,
+                        borderWidth: 2,
                         tension: 0.3,
                     }
                 ],
