@@ -42,8 +42,7 @@
         <span class="text-base text-gray-500"> click or press TAB</span>
     </div>
 
-
-    <Graph class="w-scren mx-auto" :word_list="word_list_updated" :wpm_array="wpm_array" :correctness_array="correct_array" :generate="reset"/>
+    <Graph class="w-scren mx-auto" :word_list="word_list_updated" :wpm_array="wpm_array" :correctness_array="correct_array" :generate="reset" :wpm_total="wpm_total" :time="time_elapsed" :correct_words="correct_words" :total_words="num_words"/>
 
 
     <Dictionary v-if="random_words" :difficulty="difficulty_array" :number_of_words="num_words" :reset="reset" @onChosenWords="pickedWordsFromDictionary"/>
@@ -70,15 +69,20 @@ export default {
             }
             return updated_arr;
         },
-        resetTyper(wpm_array, correct_array,wpm_total){
-            this.wpm_total = wpm_total;
-            this.wpm_array = wpm_array;
-            this.correct_array = correct_array;
+        resetTyper(wpm_array, correct_array, wpm_total, time_elapsed, correct_words){
+            if(correct_array != null){
+                this.wpm_total = wpm_total;
+                this.wpm_array = wpm_array;
+                this.correct_array = correct_array;
+                this.time_elapsed = time_elapsed;
+                this.correct_words = correct_words;
+            }
             this.reset = true;
             // this.randomWordsReset();
             this.session += 1;
             this.$nextTick(()=>{
                 this.reset = false;
+                this.wpm_array = null;
             })
         },
         pickedWordsFromDictionary(words){
@@ -113,6 +117,8 @@ export default {
             wpm_array: null,
             correct_array: null,
             wpm_total: null,
+            time_elapsed: null,
+            correct_words: null,
         }
     },
     mounted(){
