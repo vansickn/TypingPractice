@@ -1,6 +1,6 @@
 <template>
 <div class="container flex flex-row mx-auto pt-14 pb-20 justify-center gap-2 flex-wrap mt-10 select-none">
-    <input type="text" name="" id="" class="absolute w-10/12 opacity-0 cursor-default">
+    <input type="text" autocorrect="off" autocapitalize="off" name="" id="" class="absolute w-10/12 opacity-0 cursor-default">
     <Word v-for="w in word_list.length" :key="w" :word="word_list[w-1]" :last_word="w == word_list.length"
      :active="active_word == w-1" :reset="reset" @onEndOfWord="nextWord" @toPreviousWord="previousWord"
      @onCorrectWord="alterCorrectness(true)" @onIncorrectWord="alterCorrectness(false)"
