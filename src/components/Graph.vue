@@ -56,6 +56,7 @@ export default{
                             color: '#6b7280',
                             font: {
                                 size: 12,
+                                family: 'Avenir',
                             }
                         }
                     },
@@ -64,6 +65,7 @@ export default{
                             color: '#6b7280',
                             font: {
                                 size: 12,
+                                family: 'Avenir',
                             }
                         }
                     }
