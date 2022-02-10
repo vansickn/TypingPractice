@@ -3,7 +3,7 @@
             <h1 class="text-4xl text-gray-500">WPM: {{this.wpm_total}}</h1>
             <div class="container flex flex-row min-w-full justify-center">
                 <!-- <LineChart class="w-10/12" v-bind="barChartProps" /> -->
-                <LineChart v-if="showGraph" class="sm:w-10/12 h-64" :chart-data="chartData" :options="options"/>
+                <LineChart v-if="showGraph" class="w-10/12 max-h-64" :chart-data="chartData" :options="options"/>
             </div>
             <div class="container flex flex-row justify-center gap-2">
                <h1 class="text-lg text-gray-500">Time: {{this.time}}</h1> 
